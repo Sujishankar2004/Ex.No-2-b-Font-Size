@@ -1,6 +1,7 @@
-# MAD-EXP-2-To-develop-an-application-that-uses-GUI-Components-with-Fonts-and-Colors
-NAME :suji s
-REG :212222040164
+# Ex.No: 2 To develop an application that uses GUI Components with Fonts and Colors. 
+NMAE : SUJI S
+REG  : 212222040164
+
 
 ## AIM:
 
@@ -12,7 +13,7 @@ Latest Version Android Studio
 
 ## ALGORITHM:
 
-Step 1: Open Android Studio and then click on File -> New -> New project.
+Step 1: Open Android Stdio and then click on File -> New -> New project.
 
 Step 2: Then type the Application name as HelloWorld and click Next. 
 
@@ -30,134 +31,126 @@ Step 7: Save and run the application.
 ```
 /*
 Program to print the text “GUIcomponent”.
-Developed by: p.b.jashwanth
-Registration Number: 212221040064
+Developed by: Suriya Prakash B
+Registeration Number :212220220048
 */
 ```
-activity_main.xml :
-```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+**Activity_xml File:**
+    
+    
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/colbut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="#FFC107"
+        android:text="Change Color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/fonbut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#FF5722"
+        android:text="Change Font"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colbut" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:layout_marginTop="296dp"
-        android:gravity="center"
-        android:text="Hello Siddarthan!"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="152dp"
+        android:text="PRIME PLAYS"
+        android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/fonbut" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        
+**MainActivity.java File:**
+    
+    package com.example.guicomps;
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginBottom="48dp"
-        android:gravity="center"
-        android:text="Change font size"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+    import androidx.appcompat.app.AppCompatActivity;
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:text="Change color"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+    import android.content.res.AssetManager;
+    import android.graphics.Color;
+    import android.graphics.Typeface;
+    import android.os.Bundle;
+    import android.view.View;
+    import android.widget.Button;
+    import android.widget.TextView;
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-```
-MainActivity.java :
-```
-package com.example.labexp2;
+    import java.io.IOException;
+    import java.io.InputStream;
 
-import androidx.appcompat.app.AppCompatActivity;
+    public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+    private TextView textView;
+    private Button colorButton;
+    private Button fontButton;
 
-public class MainActivity extends AppCompatActivity {
-    int ch=1;
-    float font=30;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final TextView t= (TextView) findViewById(R.id.textView);
-        Button b1= (Button) findViewById(R.id.button1);
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                t.setTextSize(font);
-                font = font + 5;
-                if (font == 50)
-                    font = 30;
-            }
-        });
-        Button b2= (Button) findViewById(R.id.button2);
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (ch) {
-                    case 1:
-                        t.setTextColor(Color.RED);
-                        break;
-                    case 2:
-                        t.setTextColor(Color.GREEN);
-                        break;
-                    case 3:
-                        t.setTextColor(Color.BLUE);
-                        break;
-                    case 4:
-                        t.setTextColor(Color.CYAN);
-                        break;
-                    case 5:
-                        t.setTextColor(Color.YELLOW);
-                        break;
-                    case 6:
-                        t.setTextColor(Color.MAGENTA);
-                        break;
-                }
-                ch++;
-                if (ch == 7)
-                    ch = 1;
-            }
-        });
+
+        textView = findViewById(R.id.textView);
+        colorButton = findViewById(R.id.colbut);
+        fontButton = findViewById(R.id.fonbut);
+
+        colorButton.setOnClickListener(this);
+        fontButton.setOnClickListener(this);
     }
-}
-```
-## OUTPUT
-![image](https://github.com/Siddarthan999/MAD-EXP-2-To-develop-an-application-that-uses-GUI-Components-with-Fonts-and-Colors/assets/91734840/6b3062a0-7f0c-4590-8e7c-1c5b168cdc3c)
-![image](https://github.com/Siddarthan999/MAD-EXP-2-To-develop-an-application-that-uses-GUI-Components-with-Fonts-and-Colors/assets/91734840/d58fca9f-43f9-4731-9303-a146fdd66f5a)
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.colbut:
+                changeTextColor();
+                break;
+            case R.id.fonbut:
+                changeFont();
+                break;
+        }
+    }
+
+    private void changeTextColor() {
+        int randomColor = generateRandomColor();
+        textView.setTextColor(randomColor);
+    }
+
+    private void changeFont() {
+        Typeface newFont = Typeface.createFromAsset(getAssets(), "font/pacifico.ttf");
+        textView.setTypeface(newFont);
+    }
+
+    private int generateRandomColor() {
+        int red = (int) (Math.random() * 256);
+        int green = (int) (Math.random() * 256);
+        int blue = (int) (Math.random() * 256);
+        return Color.rgb(red, green, blue);
+    }
+    }
 
 
-## RESULT
-Thus, a Simple Android Application that uses GUI Components with Fonts and Colors using Android Studio is developed and executed successfully.
+## OUTPUT:
+   
+  ![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/59eccc13-90e9-4e0c-9360-6007c82ee610)  
+  ![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/8dc521e7-3138-444e-a108-58762564cce0)
+
+## RESULT:
+Thus a Simple Android Application that uses GUI Components with Fonts and Colors using Android Studio is developed and executed successfully.
