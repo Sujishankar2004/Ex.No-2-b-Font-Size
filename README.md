@@ -1,8 +1,4 @@
 # Ex.No: 2 To develop an application that uses GUI Components with Fonts and Colors. 
-NMAE : SUJI S
-REG  : 212222040164
-
-
 ## AIM:
 
 To create an application that uses GUI Components with Fonts and Colors using Android Studio.
@@ -31,8 +27,8 @@ Step 7: Save and run the application.
 ```
 /*
 Program to print the text “GUIcomponent”.
-Developed by: Suriya Prakash B
-Registeration Number :212220220048
+Developed by: suji s
+Registeration Number :212222040164
 */
 ```
 **Activity_xml File:**
