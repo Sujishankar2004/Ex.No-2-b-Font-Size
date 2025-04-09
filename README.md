@@ -1,65 +1,163 @@
-
-# Ex.No:2 Develop an application that uses GUI Components with Fonts and Colors
-
+# MAD-EXP-2-To-develop-an-application-that-uses-GUI-Components-with-Fonts-and-Colors
+NAME :suji s
+REG :212222040164
 
 ## AIM:
-To develop an application that uses GUI Components with Fonts and Colors using android studio.
+
+To create an application that uses GUI Components with Fonts and Colors using Android Studio.
 
 ## EQUIPMENTS REQUIRED:
 
-Android Studio(Min. required Artic Fox)
-
+Latest Version Android Studio
 
 ## ALGORITHM:
-Step 1: Create a New Android Project:
-              • Click New in the toolbar.
-              • In the window that appears, open the Android folder, select Android Application Project,
-              and click next.
-              • Provide the application name and the project name and then finally give the desired
-              package name.
-              • Choose a launcher icon for your application and then select Blank Activity and then click
-              Next
-              • Provide the desired Activity name for your project and then click Finish.
 
-Step 2: Create a New AVD (Android Virtual Device):
-        • click Android Virtual Device Manager from the toolbar.
-        • In the Android Virtual Device Manager panel, click New.
-        • Fill in the details for the AVD. Give it a name, a platform target, an SD card size, and
-        a skin (HVGA is default).
-        • Click Create AVD and Select the new AVD from the Android Virtual Device
-        Manager and click Start.
+Step 1: Open Android Studio and then click on File -> New -> New project.
 
-Step 3: Design the graphical layout with a text view and two command buttons.
+Step 2: Then type the Application name as HelloWorld and click Next. 
 
-Step 4: Run the application.
+Step 3: Then select the Minimum SDK as shown below and click Next.
 
-Step 5:On pressing the change font size button, the size of the font gets altered.
+Step 4: Then select the Empty Activity and click Next. Finally click Finish.
 
-Step 6: On pressing the Color button, the color of the text altered.
-       
-Step 6:Close the Android project. 
+Step 5: Design layout in activity_main.xml.
 
+Step 6: Display message give in MainActivity file.
 
-## Program:
- ```
+Step 7: Save and run the application.
+
+## PROGRAM:
+```
 /*
-Program to Develop an application that uses Font Size using Android Studio .
-Developed by: 
-RegisterNumber:  
+Program to print the text “GUIcomponent”.
+Developed by: p.b.jashwanth
+Registration Number: 212221040064
 */
 ```
+activity_main.xml :
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-## MainActivity.java:
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_marginTop="296dp"
+        android:gravity="center"
+        android:text="Hello Siddarthan!"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:text="Change font size"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="Change color"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+MainActivity.java :
+```
+package com.example.labexp2;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    int ch=1;
+    float font=30;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        final TextView t= (TextView) findViewById(R.id.textView);
+        Button b1= (Button) findViewById(R.id.button1);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                t.setTextSize(font);
+                font = font + 5;
+                if (font == 50)
+                    font = 30;
+            }
+        });
+        Button b2= (Button) findViewById(R.id.button2);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (ch) {
+                    case 1:
+                        t.setTextColor(Color.RED);
+                        break;
+                    case 2:
+                        t.setTextColor(Color.GREEN);
+                        break;
+                    case 3:
+                        t.setTextColor(Color.BLUE);
+                        break;
+                    case 4:
+                        t.setTextColor(Color.CYAN);
+                        break;
+                    case 5:
+                        t.setTextColor(Color.YELLOW);
+                        break;
+                    case 6:
+                        t.setTextColor(Color.MAGENTA);
+                        break;
+                }
+                ch++;
+                if (ch == 7)
+                    ch = 1;
+            }
+        });
+    }
+}
+```
+## OUTPUT
+![image](https://github.com/Siddarthan999/MAD-EXP-2-To-develop-an-application-that-uses-GUI-Components-with-Fonts-and-Colors/assets/91734840/6b3062a0-7f0c-4590-8e7c-1c5b168cdc3c)
+![image](https://github.com/Siddarthan999/MAD-EXP-2-To-develop-an-application-that-uses-GUI-Components-with-Fonts-and-Colors/assets/91734840/d58fca9f-43f9-4731-9303-a146fdd66f5a)
 
 
-
-
-
-## activity_main.xml:
-
-## Output:
-
-
-
-## Result:
-Thus, the program for android application, Font Size and color was executed successfully using Android Studio.
+## RESULT
+Thus, a Simple Android Application that uses GUI Components with Fonts and Colors using Android Studio is developed and executed successfully.
